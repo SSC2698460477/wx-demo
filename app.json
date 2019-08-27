@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/book/book",
+    "pages/nbaPlayer/nbaPlayer",
+    "pages/nbaTeam/nbaTeam"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "SSC在雨中",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "color": "#c7c7c7",
+    "list": [
+      {
+        "pagePath": "pages/book/book",
+        "text": "书籍",
+        "iconPath": "/images/tab/book.png",
+        "selectedIconPath": "/images/tab/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/nbaPlayer/nbaPlayer",
+        "text": "球员",
+        "iconPath": "/images/tab/player.png",
+        "selectedIconPath": "/images/tab/player@highlight.png"
+      },
+      {
+        "pagePath": "pages/nbaTeam/nbaTeam",
+        "text": "球队",
+        "iconPath": "/images/tab/team.png",
+        "selectedIconPath": "/images/tab/team@highlight.png"
+      }
+    ]
+  }
+}
