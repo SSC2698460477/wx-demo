@@ -1,0 +1,21 @@
+.container {
+  margin-top: 30rpx;
+  width: 280rpx;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.palyerImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+}
+
+.palyerName {
+  margin-top: 10rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 24rpx;
+}
