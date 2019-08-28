@@ -1,2 +1,6 @@
-<!--pages/nbaTeam/nbaTeam.wxml-->
-<text>pages/nbaTeam/nbaTeam.wxml</text>
+<view class="container">
+  <block wx:for="{{teams}}" wx:key="{{id}}">
+    <v-team team="{{item}}"></v-team>
+  </block>
+</view>
+

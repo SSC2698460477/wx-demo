@@ -1,2 +1,1 @@
-<!--pages/nbaPlayer/nbaPlayer.wxml-->
-<text>pages/nbaPlayer/nbaPlayer.wxml</text>
+<v-palyer></v-palyer>
