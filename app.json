@@ -2,7 +2,9 @@
   "pages": [
     "pages/book/book",
     "pages/nbaPlayer/nbaPlayer",
-    "pages/nbaTeam/nbaTeam"
+    "pages/nbaTeam/nbaTeam",
+    "pages/my/my",
+    "pages/book-detail/book-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -22,16 +24,16 @@
         "selectedIconPath": "/images/tab/book@highlight.png"
       },
       {
-        "pagePath": "pages/nbaPlayer/nbaPlayer",
-        "text": "球员",
-        "iconPath": "/images/tab/player.png",
-        "selectedIconPath": "/images/tab/player@highlight.png"
-      },
-      {
         "pagePath": "pages/nbaTeam/nbaTeam",
         "text": "球队",
         "iconPath": "/images/tab/team.png",
         "selectedIconPath": "/images/tab/team@highlight.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/tab/my.png",
+        "selectedIconPath": "/images/tab/my@highlight.png"
       }
     ]
   }
