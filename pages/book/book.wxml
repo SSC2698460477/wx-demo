@@ -1,2 +1,10 @@
-
-<v-book></v-book>
+<view class="container">
+  <view class="sub-container">
+    <image src="/images/book/quality.png" class="head-img"></image>
+    <view class="books-container">
+      <block wx:for="{{books}}" wx:key="id">
+        <v-book book="{{item}}"></v-book>
+      </block>
+    </view>
+  </view>
+</view>
