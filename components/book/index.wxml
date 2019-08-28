@@ -1,7 +1,7 @@
-<view class="container">
-  <image src="https://img3.doubanio.com/view/subject/m/public/s27264181.jpg"></image>
+<view class="container" bind:tap="onTap">
+  <image src="{{book.imgUrl}}"></image>
   <view class="description">
-    <text class="title">解忧杂货店</text>
-    <text class="pub">[日]东野圭吾/李盈春/南海出版公司/2014-5/39.50元</text>
+    <text class="title">{{book.bookName}}</text>
+    <text class="pub">{{book.pubInfo}}</text>
   </view>
 </view>
