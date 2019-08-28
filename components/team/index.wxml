@@ -1,0 +1,4 @@
+<view class="container">
+  <image class="teamImg" src="{{team.logoNew}}"></image>
+  <text class="teamName">{{team.cnName}}</text>
+</view>
