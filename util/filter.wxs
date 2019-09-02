@@ -1,0 +1,9 @@
+// 根据length截取数组的长度
+var limit = function(array,length){
+  // 至于slice方法是JavaScript中的方法
+  return array.slice(0,length);
+}
+
+module.exports = {
+  limit:limit
+}
