@@ -1,2 +1,37 @@
-<!--pages/book-detail/book-detail.wxml-->
-<text>pages/book-detail/book-detail.wxml</text>
+<wxs src="../../util/filter.wxs" module="util" />
+<view class="container">
+  <view class="head">
+    <image class="img" src="{{book.imgUrl}}"></image>
+    <text class="title">{{book.bookName}}</text>
+    <text class="author">{{pubInfo.author}}</text>
+  </view>
+  <view class="sub-container">
+    <text class="heading">短评</text>
+    <view class="comment-container">
+    <block wx:for="{{util.limit(comments, 5)}}" wx:key="{{id}}">
+      <v-tag text="{{item.shortComment}}">
+        <view slot="after" class="num"><text></text></view>
+      </v-tag>
+    </block>
+    </view>
+  </view>
+  <view class="sub-container">
+    <text class="heading">内容简介</text>
+    <text class="content">{{book.content}}</text>
+  </view>
+  <view class="sub-container">
+    <text class="heading">出版信息</text>
+    <view class="detail-container">
+      <view class="vertical description">
+        <text>出版社</text>
+        <text>出版年</text>
+        <text>价格</text>
+      </view>
+      <view class="vertical">
+        <text>{{pubInfo.publish}}</text>
+        <text>{{pubInfo.pubDate}}</text>
+        <text>{{pubInfo.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
