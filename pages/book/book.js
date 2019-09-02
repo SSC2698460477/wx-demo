@@ -20,7 +20,7 @@ Page({
    */
   onLoad: function(options) {
     // 调取接口的书籍接口
-    bookModel.getBookList(2, 20).then(res => {
+    bookModel.getBookList(1, 50).then(res => {
       this.setData({
         books:res.list
       })

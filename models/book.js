@@ -12,6 +12,15 @@ class BookModel extends HTTP {
       }
     });
   }
+
+  // 根据id 查询书籍信息 
+  getBookById(bid){
+    return this.request({
+      url:`api/book/queryBookInfoById/${bid}`,
+    })
+  }
+
+
 }
 
 export {
