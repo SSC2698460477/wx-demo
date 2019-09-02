@@ -45,7 +45,7 @@ class HTTP {
           // 通知promise状态改变
           reject();
           // 获取错误状态码
-          const err_code = res.data.err_code;
+          const err_code = res.data.error_code;
           // 进行错误处理
           this.error_code(err_code);
         }
