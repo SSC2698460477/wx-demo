@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="head">
+    <image src="{{teamInfo.logoNew}}" class="img"></image>
+    <text class="fullName">{{teamInfo.fullCnName}}</text>
+    <text class="division">{{teamInfo.division}}</text>
+  </view>
+  <!-- 主要球员 -->
+  <view class="sub-container">
+    <text class="heading">主要球员</text>
+    <view class="players">
+      <block wx:for="{{players}}" wx:key="{{id}}">
+        <v-player class="player" player="{{item}}"></v-player>
+      </block>
+    </view>
+  </view>
+  <!-- 球队介绍 -->
+  <view class="sub-container">
+    <text class="heading">球队简介</text>
+    <text class="content">{{teamInfo.brief}}</text>
+  </view>
+  <!-- 球队详细信息 -->
+  <view class="sub-container">
+    <text class="heading">详细信息</text>
+    <view class="detail-container">
+      <view class="vertical description">
+        <text>英文名称</text>
+        <text>所在城市</text>
+        <text>加入NBA时间</text>
+        <text>比赛场馆</text>
+        <text>主教练</text>
+        <text>夺冠次数</text>
+      </view>
+      <view class="vertical">
+        <text>{{teamInfo.cityEnName}} {{teamInfo.enName}}</text>
+        <text>{{teamInfo.city}}</text>
+        <text>{{teamInfo.joinNBADate}}</text>
+        <text>{{teamInfo.venue}}</text>
+        <text>{{teamInfo.coach}}</text>
+        <text>{{teamInfo.historyChampion}}</text>
+      </view>
+    </view>
+  </view>
+</view>
