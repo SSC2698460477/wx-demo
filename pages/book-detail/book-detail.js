@@ -27,7 +27,7 @@ Page({
     const bid = options.bid;
     console.log("书籍的id是：" + bid);
     bookModel.getBookById(bid).then(res => {
-      // console.log(res);
+      console.log(res);
       const pubInfo = stringUtil.strToObj(res.bookInfo.pubInfo);
       this.setData({
         book:res.bookInfo,
