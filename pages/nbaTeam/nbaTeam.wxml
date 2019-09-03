@@ -1,6 +1,17 @@
 <view class="container">
-  <block wx:for="{{teams}}" wx:key="{{id}}">
-    <v-team team="{{item}}"></v-team>
-  </block>
+  <view class="head">
+    <text class="title">NBA球队一览</text>
+  </view>
+  <view class="content">
+    <block wx:for="{{teams}}" wx:key="{{id}}">
+      <view class="team-container" wx:if="{{item.conference == 'east'}}">
+        <text class="heading">东部-{{item.division}}</text>
+        <v-team team="{{item}}"></v-team>
+      </view>
+      <view class="team-container" wx:if="{{item.conference == 'west'}}">
+        <text class="heading">西部-{{item.division}}</text>
+        <v-team team="{{item}}"></v-team>
+      </view>
+    </block>
+  </view>
 </view>
-
