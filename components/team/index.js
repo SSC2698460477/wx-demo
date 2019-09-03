@@ -18,6 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event){
+      const teamId = this.data.team.teamId;
+      wx.navigateTo({
+        url: `/pages/nbaTeam-detail/nbaTeam-detail?teamId=${teamId}`,
+      })
+    }
   }
 })
