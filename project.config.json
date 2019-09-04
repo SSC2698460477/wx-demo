@@ -48,13 +48,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "book-detail",
 					"pathName": "pages/book-detail/book-detail",
-					"query": "bid=34",
+					"query": "bid=1",
 					"scene": null
 				},
 				{
