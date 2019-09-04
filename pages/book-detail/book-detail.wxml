@@ -8,11 +8,13 @@
   <view class="sub-container">
     <text class="heading">短评</text>
     <view class="comment-container">
-    <block wx:for="{{util.limit(comments, 5)}}" wx:key="{{id}}">
-      <v-tag text="{{item.shortComment}}">
-        <view slot="after" class="num"><text></text></view>
-      </v-tag>
-    </block>
+      <block wx:for="{{util.limit(comments, 5)}}" wx:key="{{id}}">
+        <v-tag text="{{item.shortComment}}">
+          <view slot="after" class="num">
+            <text></text>
+          </view>
+        </v-tag>
+      </block>
     </view>
   </view>
   <view class="sub-container">
@@ -35,3 +37,29 @@
     </view>
   </view>
 </view>
+
+<!-- 短评功能 -->
+<view class="post-container" wx:if="{{!posting}}">
+  <view class="post-fake" bindtap="onFakePost">
+    <text>输入短评</text>
+  </view>
+</view>
+
+<!-- 弹出的评论输入框 -->
+<view class="posting-container" wx:if="{{posting}}">
+  <view class="post-header">
+    <text>短评</text>
+    <text class="cancle" bindtap="onCancle">取消</text>
+  </view>
+  <!-- <input class="post" placeholder="短评最多50个字"></input> -->
+  <form bindsubmit="onPost">
+    <textarea class="post" placeholder="短评最多输入100字" name="comment"></textarea>
+    <view class="btn-container">
+      <button form-type="submit" type="primary">提交</button>
+      <button form-type="reset">重置</button>
+    </view>
+  </form>
+</view>
+
+<!-- 遮罩层 -->
+<v-mask wx:if="{{posting}}"></v-mask>

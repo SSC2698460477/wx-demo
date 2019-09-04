@@ -17,7 +17,8 @@ Page({
   data: {
     book: Object,
     pubInfo:Object,
-    comments:[]
+    comments:[],
+    posting:false
   },
 
   /**
@@ -35,6 +36,44 @@ Page({
         comments: res.bookShortComments
       })
      
+    })
+  },
+
+  onFakePost(event){
+    this.setData({
+      posting: true
+    })
+  },
+
+  onCancle(event){
+    this.setData({
+      posting:false
+    })
+  },
+
+  // 短评提交
+  onPost(event){
+    const comment = event.detail.value.comment;
+    if(!comment){
+      return;
+    }
+    // 限制输入评论长度
+    if(comment.length > 100){
+       wx.showToast({
+         title:"短评不能超过100字",
+         icon:""
+       }) 
+    }
+    console.log("bid:" + this.data.book.id + "comment:" + comment);
+    // 短评提交到服务器
+    bookModel.postComment(this.data.book.id,comment).then(res => {
+      this.data.comments.unshift({
+        shortComment:comment
+      })
+      this.setData({
+        comments:this.data.comments,
+        posting:false
+      })
     })
   },
 
