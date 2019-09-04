@@ -20,7 +20,17 @@ class BookModel extends HTTP {
     })
   }
 
-
+  // 短评提交方法
+  postComment(bid,comment){
+    return this.request({
+      url:"api/book/addShortComment",
+      method:"POST",
+      data:{
+        bookId:bid,
+        shortComment:comment
+      }
+    })
+  }
 }
 
 export {
