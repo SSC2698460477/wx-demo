@@ -19,20 +19,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading();
     const teamId = options.teamId;
     console.log("teamId是:" + teamId);
-    nbaModel.getTeamInfoById(teamId).then(res =>{
+
+    const teamInfo = nbaModel.getTeamInfoById(teamId);
+    const players = nbaModel.getPlayersByTeamId(teamId);
+    // 使用Promise.all 来处理2个以上请求
+    Promise.all([teamInfo, players]).then(res => {
       this.setData({
-        teamInfo: res
+        teamInfo:res[0],
+        palyers:res[1]
       })
-       console.log(res)
+      wx.hideLoading();
     })
-    nbaModel.getPlayersByTeamId(teamId).then(res =>{
-      this.setData({
-        players: res
-      })
-       console.log(res)
-    })
+    // nbaModel.getTeamInfoById(teamId).then(res =>{
+    //   this.setData({
+    //     teamInfo: res
+    //   })
+    //    console.log(res)
+    // })
+    // nbaModel.getPlayersByTeamId(teamId).then(res =>{
+    //   this.setData({
+    //     players: res
+    //   })
+    //    console.log(res)
+    // })
   },
 
   /**
@@ -67,7 +79,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    
   },
 
   /**
