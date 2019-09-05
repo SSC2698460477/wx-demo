@@ -25,18 +25,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // 加载
+    wx.showLoading();
     const bid = options.bid;
     console.log("书籍的id是：" + bid);
-    bookModel.getBookById(bid).then(res => {
-      console.log(res);
+    const bookInfo = wx.getStorageSync(this._getKey(bid));
+    if(!bookInfo){
+      // 缓存中没有数据 从服务器查询
+      bookModel.getBookById(bid).then(res => {
+        console.log(res);
+        const pubInfo = stringUtil.strToObj(res.bookInfo.pubInfo);
+        this.setData({
+          book: res.bookInfo,
+          pubInfo: pubInfo,
+          comments: res.bookShortComments
+        })
+        wx.setStorageSync(this._getKey(res.bookInfo.id), res);
+        wx.hideLoading();
+      })
+    }else{
+      // 直接从缓存中获取
+      const res = wx.getStorageSync(this._getKey(bid));
       const pubInfo = stringUtil.strToObj(res.bookInfo.pubInfo);
       this.setData({
-        book:res.bookInfo,
-        pubInfo:pubInfo,
+        book: res.bookInfo,
+        pubInfo: pubInfo,
         comments: res.bookShortComments
       })
-     
-    })
+      wx.hideLoading();
+    }
+    
   },
 
   onFakePost(event){
@@ -75,6 +93,11 @@ Page({
         posting:false
       })
     })
+  },
+
+  // 生成缓存中key
+  _getKey(index){
+    return "book-"+index;
   },
 
   /**
