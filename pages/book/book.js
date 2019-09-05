@@ -20,7 +20,7 @@ Page({
    */
   onLoad: function(options) {
     const pageIndex = 1;
-    const pageNum = 50;
+    const pageNum = 100;
     const key = this._getKey(pageIndex, pageNum);
     //从缓存中获取数据
     const books = wx.getStorageSync(key);
