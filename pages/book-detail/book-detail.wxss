@@ -183,3 +183,6 @@
   font-size: 28rpx;
 }
 
+.shadow{
+  color: #999;
+}

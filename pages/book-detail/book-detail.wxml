@@ -7,6 +7,7 @@
   </view>
   <view class="sub-container">
     <text class="heading">短评</text>
+    <text class="shadow" wx:if="{{comments.length <= 0}}">暂无短评</text>
     <view class="comment-container">
       <block wx:for="{{util.limit(comments, 5)}}" wx:key="{{id}}">
         <v-tag text="{{item.shortComment}}">
