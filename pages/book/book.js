@@ -19,13 +19,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // 调取接口的书籍接口
-    bookModel.getBookList(1, 50).then(res => {
-      this.setData({
-        books:res.list
+    const pageIndex = 1;
+    const pageNum = 50;
+    const key = this._getKey(pageIndex, pageNum);
+    //从缓存中获取数据
+    const books = wx.getStorageSync(key);
+    if(!books){
+      // 缓存中没有数据
+      // 调取接口的书籍接口
+      bookModel.getBookList(pageIndex, pageNum).then(res => {
+        this.setData({
+          books: res.list
+        })
+        // console.log(res);
+        wx.setStorageSync(this._getKey(res.pageNum,res.pageSize), res.list);  
       })
-      // console.log(res.list);
-    })
+    }else{
+      this.setData({
+        books: books
+      })
+    }
+  },
+
+  // 自动生成缓存中key
+  _getKey(index,num) {
+    const key = "books-" + index + "-" + num;
+    return key;
   },
 
   /**
