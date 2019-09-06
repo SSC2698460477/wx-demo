@@ -5,7 +5,8 @@
     "pages/nbaTeam/nbaTeam",
     "pages/my/my",
     "pages/book-detail/book-detail",
-    "pages/nbaTeam-detail/nbaTeam-detail"
+    "pages/nbaTeam-detail/nbaTeam-detail",
+    "pages/nbaPlayer-detail/nbaPlayer-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
