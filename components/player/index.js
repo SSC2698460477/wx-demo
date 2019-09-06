@@ -18,6 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event){
+      // console.log(this.data.player.id)
+      wx.navigateTo({
+        url: `/pages/nbaPlayer-detail/nbaPlayer-detail?playerId=${this.data.player.id}`,
+      })
+    }
   }
 })
