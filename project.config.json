@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -62,6 +62,13 @@
 					"name": "nbaTeam-detail",
 					"pathName": "pages/nbaTeam-detail/nbaTeam-detail",
 					"query": "teamId=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "nbaPlayer-detail",
+					"pathName": "pages/nbaPlayer-detail/nbaPlayer-detail",
+					"query": "playerId=83",
 					"scene": null
 				}
 			]
