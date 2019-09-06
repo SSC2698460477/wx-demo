@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="head">
+    <image src="{{playerInfo.picFromSIB}}" class="img"></image>
+    <text class="cnName">{{playerInfo.cnName}}</text>
+    <text class="enName">{{playerInfo.enName}}</text>
+  </view>
+  <view class="sub-container">
+    <text class="heading">详细信息</text>
+    <view class="detail-container">
+      <view class="vertical description">
+        <text>中文简称</text>
+        <text>出生日期</text>
+        <text>选秀年份</text>
+        <text>位置</text>
+        <text>身高</text>
+        <text>体重</text>
+        <text>薪资（美元）</text>
+      </view>
+      <view class="vertical">
+        <text>{{playerInfo.cnAlias}}</text>
+        <text>{{playerInfo.birthDate}}</text>
+        <text>{{playerInfo.draftYear}}年</text>
+        <text>{{playerInfo.position}}</text>
+        <text>{{playerInfo.height}}</text>
+        <text>{{playerInfo.weight}}</text>
+        <text>{{playerInfo.wage}}</text>
+      </view>
+    </view>
+  </view>
+</view>
