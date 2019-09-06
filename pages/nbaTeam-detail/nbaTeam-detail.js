@@ -27,9 +27,10 @@ Page({
     const players = nbaModel.getPlayersByTeamId(teamId);
     // 使用Promise.all 来处理2个以上请求
     Promise.all([teamInfo, players]).then(res => {
+      console.log(res);
       this.setData({
         teamInfo:res[0],
-        palyers:res[1]
+        players:res[1]
       })
       wx.hideLoading();
     })

@@ -80,5 +80,5 @@
 
 .description{
   color: #999;
-  margin-right: 30rpx;
+  margin-left: 30rpx;
 }
