@@ -26,6 +26,13 @@ class NBAModel extends HTTP {
       }
     })
   }
+
+  // 根据playerId 获取球员数据
+  getPlayerById(playerId){
+    return this.request({
+      url:`api/nba/queryPlayerById?id=${playerId}`
+    })
+  }
 }
 
 export {
