@@ -1,0 +1,31 @@
+<view class="container">
+  <!-- 头部信息 -->
+  <view class="header">
+    <view class="search-container">
+      <image class="icon" src="images/search.png"></image>
+      <input value="{{q}}" bindconfirm="onConfirm" class="bar" placeholder-class="in-bar" placeholder="书籍名" auto-focus="true"></input>
+      <image bindtap="onDelete" class="cancel-img" src="images/cancel.png"></image>
+    </view>
+    <view class="cancel" bindtap="onCancel">取消</view>
+  </view>
+  <!-- 搜索历史标签 -->
+  <view wx:if="{{!searching}}">
+    <view class="history">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>历史搜索</text>
+      </view>
+      <view class="tags">
+        <block wx:for="{{historyWords}}" wx:key="">
+          <v-tag text="{{item}}" bind:tapping="onConfirm"></v-tag>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 书籍搜索结果 -->
+  <view wx:if="{{searching}}" class="books-container">
+    <block wx:for="{{dataArray}}" wx:key="{{item.id}}">
+      <v-book book="{{item}}"></v-book>
+    </block>
+  </view>
+</view>
