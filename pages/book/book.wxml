@@ -1,4 +1,10 @@
-<view class="container">
+<view class="container" wx:if="{{!searching}}">
+  <view class="header">
+    <view bindtap="onSearching" class="box" bindtap="onSearching">
+      <image src="/images/icon/search.png"></image>
+      <text>搜索书籍</text>
+    </view>
+  </view>
   <view class="sub-container">
     <image src="/images/book/quality.png" class="head-img"></image>
     <view class="books-container">
@@ -8,3 +14,7 @@
     </view>
   </view>
 </view>
+
+<!-- 搜索页面 -->
+<v-search bind:cancel="onCancel"  wx:if="{{searching}}"></v-search>
+

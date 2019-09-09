@@ -12,7 +12,8 @@ Page({
    */
   data: {
     // 定义数组
-    books:[]
+    books:[],
+    searching:false
   },
 
   /**
@@ -20,7 +21,7 @@ Page({
    */
   onLoad: function(options) {
     const pageIndex = 1;
-    const pageNum = 100;
+    const pageNum = 20;
     const key = this._getKey(pageIndex, pageNum);
     //从缓存中获取数据
     const books = wx.getStorageSync(key);
@@ -39,6 +40,20 @@ Page({
         books: books
       })
     }
+  },
+
+  // 页面的切换 searching的状态的改变
+  onSearching(event){
+    this.setData({
+      searching:true
+    })
+  },
+
+  // 监听搜索页面取消事件
+  onCancel(){
+    this.setData({
+      searching:false
+    })
   },
 
   // 自动生成缓存中key
