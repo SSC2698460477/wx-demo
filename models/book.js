@@ -13,6 +13,17 @@ class BookModel extends HTTP {
     });
   }
 
+  // 搜索书籍
+  search(start,q){
+    return this.request({
+      url:"api/book/searchBooks",
+      data:{
+        q:q,
+        start:start
+      }
+    })
+  }
+
   // 根据id 查询书籍信息 
   getBookById(bid){
     return this.request({
