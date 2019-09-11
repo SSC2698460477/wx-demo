@@ -51,6 +51,9 @@ Component({
     },
     // 搜索功能方法
     onConfirm(event){
+      wx.showLoading({
+        title: '拼命加载中...',
+      })
       this.setData({
         searching:true
       })
@@ -62,6 +65,7 @@ Component({
           q:keyword
         })
         keywordModel.addToHistory(keyword);
+        wx.hideLoading();
       })
     }
   }

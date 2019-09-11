@@ -18,6 +18,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '拼命加载中...',
+    })
     const playerId = options.playerId;
     console.log("playerId:" + playerId);
     const playerReq = nbaModel.getPlayerById(playerId);
@@ -27,6 +30,7 @@ Page({
       this.setData({
         playerInfo:res
       })
+      wx.hideLoading();
     })
   },
 

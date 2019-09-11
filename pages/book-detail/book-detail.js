@@ -26,7 +26,9 @@ Page({
    */
   onLoad: function(options) {
     // 加载
-    wx.showLoading();
+    wx.showLoading({
+      title: '拼命加载中...',
+    })
     const bid = options.bid;
     console.log("书籍的id是：" + bid);
     const bookInfo = wx.getStorageSync(this._getKey(bid));
