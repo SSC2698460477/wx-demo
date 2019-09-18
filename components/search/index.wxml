@@ -28,4 +28,11 @@
       <v-book book="{{item}}"></v-book>
     </block>
   </view>
+  <!-- loading图标的显示或者隐藏 -->
+  <v-loading class="loading-center" wx:if="{{loadingCenter}}" />
+  <v-loading class="loading" wx:if="{{loading}}" />
+  <text class="loading" wx:if="{{noneMore}}">没有更多数据了...</text>
+
+  <!-- 没有搜索结果的提示 -->
+  <text class="empty-tip" wx:if="{{noneResult}}">没有搜索到书籍</text>
 </view>

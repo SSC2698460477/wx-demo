@@ -36,7 +36,8 @@ Component({
     historyWords: [],
     // dataArray: [],
     searching: false,
-    loading: false // 充当锁的角色
+    // loading: false, // 充当锁的角色
+    loadingCenter: false
   },
 
   // 组件初始化时候加载的方法
@@ -55,41 +56,35 @@ Component({
       if (!this.data.q) {
         return;
       }
-      if (this._isLocked()) {
+      if (this.isLocked()) {
         return;
       }
 
-      if(this.hasMore()){
-        this._locked();
+      if (this.hasMore()) {
+        this.locked();
         bookModel.search(this.getCurrentStart(), this.data.q).then(res => {
           this.setMoreData(res.list);
-          this._unLocked();
-        },()=>{
+          this.unLocked();
+        }, () => {
           // 请求失败需要释放锁
-          this._unLocked();
+          this.unLocked();
         })
-        
+
       }
     },
     onCancel(event) {
+      this.initialize();
       // 交给页面处理
       this.triggerEvent("cancel", {}, {})
     },
     // 清除搜索记录
     onDelete(event) {
-      this.setData({
-        dataArray: [],
-        searching: false
-      })
+      this.initialize();
+      this._hideResult();
     },
     // 搜索功能方法
     onConfirm(event) {
-      wx.showLoading({
-        title: '拼命加载中...',
-      })
-      // this.setData({
-      //   searching: true
-      // })
+      this._showLoadingCenter();
       this._showResult();
       // 初始化behavior中的数据
       this.initialize();
@@ -102,9 +97,21 @@ Component({
           q: keyword
         })
         keywordModel.addToHistory(keyword);
-        wx.hideLoading();
+        this._hideLoadingCenter();
       }, () => {
-        wx.hideLoading();
+        this._hideLoadingCenter();
+      })
+    },
+    // 显示加载图标
+    _showLoadingCenter(){
+      this.setData({
+        loadingCenter:true
+      })
+    },
+    // 隐藏加载图标
+    _hideLoadingCenter(){
+      this.setData({
+        loadingCenter:false
       })
     },
     // 显示搜索结果
@@ -114,22 +121,12 @@ Component({
       })
     },
     // 隐藏搜索结果
-    _hideResult(){
+    _hideResult() {
       this.setData({
-        searching: false
+        searching: false,
+        q:''
       })
     },
-    // 判断是否上锁
-    _isLocked(){
-      return this.data.loading?true:false
-    },
-    // 加锁
-    _locked(){
-      this.data.loading = true;
-    },
-    // 释放锁
-    _unLocked(){
-      this.data.loading = false;
-    }
+
   }
 })
